@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>Comandos de voz</title>
+
+	<!-- JavaScript -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+	<script src="voice.js"></script>
+
+	<!-- CSS -->
+	<style>
+	section {
+		margin: 20px 0;
+	}
+
+	a {
+		color: blue;
+		text-decoration: underline;
+		cursor: pointer;
+	}
+
+	input {
+		padding: 5px;
+	}
+
+	.hidden {
+		display: none;
+	}
+	</style>
+</head>
+<body>
+	<section>
+		<a id="activate-voice">Activar comandos por voz</a>
+	</section>
+
+	<section>
+		<input id="voice-input" placeholder="Di 'seleccionar campo'" />
+	</section>
+
+	<section class="photo hidden">
+		<img src="https://avatars0.githubusercontent.com/u/10877376?v=3&s=460" />
+	</section>
+
+	<section class="video hidden">
+	</section>
+
+	<section class="commands hidden">
+		<strong>Comandos disponibles:</strong>
+
+		<ul id="list-commands">
+		</ul>
+	</section>
+</body>
+</html>
