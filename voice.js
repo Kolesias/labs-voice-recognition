@@ -49,7 +49,6 @@ class Voice
 	 */
 	static start() {
 		Voice.prepare();
-
 		$('#activate-voice').on('click', Voice.activate);
 	}
 
@@ -90,7 +89,7 @@ class Voice
 
 		recognition.onstart		= this.onActivated; 	// Al empezar a escuchar
 		recognition.onerror		= this.onError; 		// Al ocurrir un problema
-		recognition.onend		= this.clear; 			// Al dejar de escuchar
+		recognition.onend		= this.clear; 			// Al dejar de escuchar, sea por recognition.stop() o porque se dejo de hablar
 		recognition.onresult	= this.onResult;		// Hemos reconocido un comando
 
 		return true;
@@ -101,9 +100,12 @@ class Voice
 	 */
 	static activate() {
 		// Mostramos la lista de comandos
-		for ( let c in commands ) {
-			$('#list-commands').append('<li>' + c + '</li>');
+		if ( $('#list-commands li').length == 0 ) {
+			for ( let c in commands ) {
+				$('#list-commands').append('<li>' + c + '</li>');
+			}
 		}
+
 		$('.commands').removeClass('hidden');
 
 		// Empezamos a escuchar el microfono
@@ -116,6 +118,7 @@ class Voice
 	 */
 	static clear() {
 		$('#activate-voice').fadeIn();
+		$('.commands').addClass('hidden');
 	}
 
 	/**
