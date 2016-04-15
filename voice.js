@@ -140,10 +140,10 @@ class Voice
 		var command = result[0].transcript.trim();
 
 		// log
-		console.log('Se ha detectado: %s', command);
+		console.log('Se ha detectado: %s', command.toLowerCase() );
 
 		// Ejecutamos el comando
-		Voice.trigger( command );
+		Voice.trigger( command.toLowerCase() );
 	}
 
 	/**
